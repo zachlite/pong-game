@@ -1,6 +1,7 @@
 
 #include "pong.h"
 #include "paddle.h"
+#include "renderer.h"
 
 Pong::Pong(int mode){
 
@@ -10,12 +11,12 @@ Pong::Pong(int mode){
 
 }
 
-void Pong::Start(){
+void Pong::StartGame(){
 	cout << "start game" <<endl;
 
+	Renderer *renderer = new Renderer(screenWidth, screenHeight);
 
-	
-	Paddle *player_paddle = new Paddle();
+	// Paddle *player_paddle = new Paddle();
 
 
 
@@ -50,34 +51,14 @@ void Pong::Start(){
 
 
 
+        //logic
 
-        //logic 
+        //render
+        renderer -> InitRenderFrame();
+        renderer -> RenderFrame();
+        renderer -> CleanRenderFrame();
 
-
-        //Render to the screen
-        glClear(GL_COLOR_BUFFER_BIT);
-        glPushMatrix();//start phase
-        glOrtho(0,400,300,0,-1,1);//set the matrix
-        /////////////////////////////////////////////
-
-
-
-
-
-        // glBegin(GL_QUADS);
-        // glColor3ub(0, 0xff, 0xff);
-        // glVertex2f(x, y);
-        // glVertex2f(x+width, y);
-        // glVertex2f(x+width, y+height);
-        // glVertex2f(x, y+height);
-        // glEnd();
-
-        ///////////////////////////////////////////
-        //end rendering
-        glPopMatrix();//end
-        SDL_GL_SwapBuffers();//re-draws
-
-        SDL_Delay(100);//ms
+        // SDL_Delay(100);//ms
 
    }
 
@@ -88,6 +69,13 @@ void Pong::TogglePause(){
 	cout << "pause game" <<endl;
 }
 
+
+void Pong::SetScreenWidth(int width){
+	screenWidth = width;
+}
+void Pong::SetScreenHeight(int height){
+	screenHeight = height;
+}
 
 
 //event handling

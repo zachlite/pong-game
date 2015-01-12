@@ -41,4 +41,3 @@ void SDLLayer::Setup_Window(const char * windowName, int width, int height){
 
 }
 
-

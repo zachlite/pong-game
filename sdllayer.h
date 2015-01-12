@@ -13,6 +13,7 @@ class SDLLayer
 		SDLLayer(const char * windowName, int width, int height);
 		~SDLLayer();
 
+	
 	private:	
 		void Init_Memory();
 		void Setup_Window(const char * windowName, int width, int height);

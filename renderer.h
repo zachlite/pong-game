@@ -8,11 +8,14 @@ using namespace std;
 class Renderer
 {
 	public:
-		Renderer();
+		Renderer(int width, int height);
 		~Renderer();
 		void InitRenderFrame();
 		void RenderFrame();
 		void CleanRenderFrame();
 
 	/* data */
+	private:
+		int screenWidth;
+		int screenHeight;	
 };

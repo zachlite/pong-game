@@ -16,7 +16,10 @@ int main(int argc, char * argv[]){
 
     //create a new pong game object
     Pong *pongGame = new Pong(1);
-    pongGame->Start();
+    pongGame->SetScreenHeight(300);
+    pongGame->SetScreenWidth(400);
+
+    pongGame->StartGame();
 
     //chose game mode
 

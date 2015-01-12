@@ -12,7 +12,10 @@ class Pong
 		Pong(int mode);//constructor
 		~Pong();//deconstructor
 
-		void Start(void);
+		void StartGame(void);
+
+		void SetScreenWidth(int width);
+		void SetScreenHeight(int height);
 
 
 	private:
@@ -21,5 +24,9 @@ class Pong
 		bool isPaused;
 		void TogglePause(void);
 
+		int screenHeight;
+		int screenWidth;
+
+		//array to hold objects to render
 };
 
