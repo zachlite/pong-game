@@ -1,21 +1,18 @@
 #include <iostream>
+#include "shape.h"
 
 using namespace std;
 
-typedef struct 
-{
-	int x;
-	int y;
-}point;
 
 
-class Paddle
+
+class Paddle: public Shape
 {
 	public:
 		Paddle();
 		~Paddle();
 
-		void Draw();
+	
 
 
 	/* data */

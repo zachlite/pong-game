@@ -2,7 +2,7 @@ CC     	   = g++
 CFLAGS     = -c -Wall
 GLFLAGS    = -framework OpenGL
 SDLFLAGS   = `sdl-config --cflags --libs` -framework Cocoa
-SOURCES    = main.cpp pong.cpp sdllayer.cpp paddle.cpp renderer.cpp
+SOURCES    = main.cpp pong.cpp sdllayer.cpp paddle.cpp renderer.cpp shape.cpp
 OBJECTS    = $(SOURCES:.cpp=.o)
 EXECUTABLE = pong
 

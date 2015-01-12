@@ -16,8 +16,9 @@ void Pong::StartGame(){
 
 	Renderer *renderer = new Renderer(screenWidth, screenHeight);
 
-	// Paddle *player_paddle = new Paddle();
+	Paddle *player_paddle = new Paddle();
 
+	
 
 
     SDL_Event event; 
@@ -52,6 +53,8 @@ void Pong::StartGame(){
 
 
         //logic
+
+
 
         //render
         renderer -> InitRenderFrame();

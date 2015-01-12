@@ -8,9 +8,6 @@ Paddle::Paddle(){
 
 }
 
-void Paddle::Draw(){
 
 
 
-
-}

@@ -2,6 +2,8 @@
 #include <OpenGL/glu.h>
 #include <OpenGL/glext.h>
 
+#include "shape.h"
+
 #include <iostream>
 using namespace std;
 
@@ -18,4 +20,6 @@ class Renderer
 	private:
 		int screenWidth;
 		int screenHeight;	
+
+		//frame.  a frame is an array of shapes
 };
