@@ -1,6 +1,6 @@
 
 #include "pong.h"
-#include "paddle.h"
+#include "shape.h"
 #include "renderer.h"
 
 Pong::Pong(int mode){
@@ -16,10 +16,15 @@ void Pong::StartGame(){
 
 	Renderer *renderer = new Renderer(screenWidth, screenHeight);
 
-	Paddle *player_paddle = new Paddle();
+	// Paddle *player_paddle = new Paddle();
 
-	
+	// vector<Shape> derp;
+	// size_t size = 10;
+	// vector<Shape> derp;
+	vector<Shape>v1;
 
+
+	Shape *shape = new Shape();
 
     SDL_Event event; 
  
@@ -58,7 +63,7 @@ void Pong::StartGame(){
 
         //render
         renderer -> InitRenderFrame();
-        renderer -> RenderFrame();
+        // renderer -> RenderFrame(derp);
         renderer -> CleanRenderFrame();
 
         // SDL_Delay(100);//ms

@@ -12,9 +12,9 @@ void Renderer::InitRenderFrame(){
     glOrtho(0,screenWidth,screenHeight,0,-1,1);//set the matrix
 }
 
-void Renderer::RenderFrame(){
+void Renderer::RenderFrame(vector<Shape> &shapes){
 
-	//for now
+	// for now
 	int x = 20;
 	int y = 20;
 	int width = 20;
@@ -30,6 +30,13 @@ void Renderer::RenderFrame(){
 
     //eventually...
     //for each shape in array of shapes to render...
+
+    for (int i = 0; i < shapes.size(); i++)
+    {
+    	cout << "iterate" << endl;
+    }
+
+
 
 }
 

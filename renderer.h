@@ -2,6 +2,8 @@
 #include <OpenGL/glu.h>
 #include <OpenGL/glext.h>
 
+#include <vector>
+
 #include "shape.h"
 
 #include <iostream>
@@ -12,8 +14,11 @@ class Renderer
 	public:
 		Renderer(int width, int height);
 		~Renderer();
+
+		void SetFrame();
+
 		void InitRenderFrame();
-		void RenderFrame();
+		void RenderFrame(vector<Shape> &shapes);
 		void CleanRenderFrame();
 
 	/* data */
@@ -21,5 +26,6 @@ class Renderer
 		int screenWidth;
 		int screenHeight;	
 
-		//frame.  a frame is an array of shapes
+		
+		//frame.  a frame is vector of shapes
 };
