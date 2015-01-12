@@ -16,4 +16,8 @@ class SDLLayer
 	private:	
 		void Init_Memory();
 		void Setup_Window(const char * windowName, int width, int height);
+
+		int screenWidth;
+		int screenHeight;
+
 };

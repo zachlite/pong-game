@@ -2,6 +2,9 @@
 
 SDLLayer::SDLLayer(const char * windowName, int width, int height){
 
+	screenWidth = width;
+	screenHeight = height;
+
 	SDL_Init(SDL_INIT_EVERYTHING);
 	Init_Memory();
 	Setup_Window(windowName, width, height);

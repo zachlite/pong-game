@@ -1,5 +1,6 @@
 
 #include "pong.h"
+#include "paddle.h"
 
 Pong::Pong(int mode){
 
@@ -11,6 +12,10 @@ Pong::Pong(int mode){
 
 void Pong::Start(){
 	cout << "start game" <<endl;
+
+
+	
+	Paddle *player_paddle = new Paddle();
 
 
 
@@ -55,13 +60,17 @@ void Pong::Start(){
         glOrtho(0,400,300,0,-1,1);//set the matrix
         /////////////////////////////////////////////
 
-        glBegin(GL_QUADS);
-        glColor3ub(0, 0xff, 0xff);
-        glVertex2f(x, y);
-        glVertex2f(x+width, y);
-        glVertex2f(x+width, y+height);
-        glVertex2f(x, y+height);
-        glEnd();
+
+
+
+
+        // glBegin(GL_QUADS);
+        // glColor3ub(0, 0xff, 0xff);
+        // glVertex2f(x, y);
+        // glVertex2f(x+width, y);
+        // glVertex2f(x+width, y+height);
+        // glVertex2f(x, y+height);
+        // glEnd();
 
         ///////////////////////////////////////////
         //end rendering
