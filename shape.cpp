@@ -32,9 +32,9 @@ void Shape::SetHeight(int h){
 
 }
 
-void Shape::SetVelocity(float mag, float dir){
-	velocity.magnitude = mag;
-	velocity.direction = dir;
+void Shape::SetVelocity(int x, int y){
+	velocity.x = x;
+	velocity.y = y;
 }
 
 Point Shape::GetCenter(){

@@ -9,6 +9,15 @@
 
 using namespace std;
 
+
+typedef struct{
+	int X1;
+	int X2;
+	int Y1;
+	int Y2;
+}Rect;
+
+
 class Pong
 {
 	public:
@@ -25,6 +34,8 @@ class Pong
 		bool endGame;
 		bool isPaused;
 		void TogglePause(void);
+		bool RectInRect(Rect rect1, Rect rect2);
+
 
 		int screenHeight;
 		int screenWidth;

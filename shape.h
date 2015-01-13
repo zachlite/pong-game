@@ -24,8 +24,8 @@ typedef struct
 
 typedef struct 
 {
-	float magnitude;
-	float direction;
+	int x;
+	int y;
 
 }Velocity;
 
@@ -39,7 +39,7 @@ class Shape
 		void SetCenter(int x, int y);
 		void SetY(int y);
 		void SetColor(int r, int g, int b, int a);
-		void SetVelocity(float mag, float dir);
+		void SetVelocity(int x, int y);
 		void SetWidth(int w);
 		void SetHeight(int h);
 
@@ -51,7 +51,6 @@ class Shape
 		int GetHeight();
 
 
-
 	/* data */
 	private:
 		Point centerPoint;
@@ -59,6 +58,7 @@ class Shape
 		int height;
 		Color color;
 		Velocity velocity;
+
 
 
 };
