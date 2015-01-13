@@ -1,7 +1,13 @@
 
 #include "pong.h"
-#include "shape.h"
 #include "renderer.h"
+#include <vector>
+
+const int PADDLE_WIDTH = 3;
+const int PADDLE_HEIGHT = 100;
+
+
+
 
 Pong::Pong(int mode){
 
@@ -17,19 +23,31 @@ void Pong::StartGame(){
 	Renderer *renderer = new Renderer(screenWidth, screenHeight);
 
 
-	Shape *shape = new Shape();
-	shape->SetWidth(50);
-    shape->SetHeight(80);
-    shape->SetColor(2, 2, 2, 2);
-    shape->SetVelocity(3.0, 4.0);
-    shape->SetCenter(100,100);
+	Shape *player_1 = new Shape();
+
+	player_1->SetWidth(PADDLE_WIDTH);
+    player_1->SetHeight(PADDLE_HEIGHT);
+    player_1->SetCenter(10,screenHeight/2.0);
+
+    Shape *player_2 = new Shape();
+
+    player_2->SetWidth(PADDLE_WIDTH);
+    player_2->SetHeight(PADDLE_HEIGHT);
+    player_2->SetCenter(screenWidth-10,screenHeight/2.0);
+
+    // shape->SetVelocity(3.0, 4.0);
+
+    size_t size = 2;
+    std::vector<Shape*> shapes;
+
+    shapes.push_back(player_1);
+    shapes.push_back(player_2);
 
 
+ 
 
     SDL_Event event; 
- 
-    int x = 20, y = 20;
-    int width = 40, height = 50;
+
 
     while (!endGame)
     {
@@ -53,20 +71,30 @@ void Pong::StartGame(){
             	if (!isPaused) isPaused = true;
             	else isPaused = false;
             }
+
         }
 
 
 
         //logic
         //need these
-         // cout << shape->GetVelocity().magnitude << endl;
-    // cout << shape->GetVelocity().direction << endl;
+        // cout << shape->GetVelocity().magnitude << endl;
+        // cout << shape->GetVelocity().direction << endl;
+
+
+
 
 
 
         //render
         renderer -> InitRenderFrame();
-        renderer -> RenderFrame(shape);
+
+        for (int i = 0; i < shapes.size(); ++i)
+        {
+             renderer -> RenderFrame(shapes.at(i)); 
+        }
+        
+
         renderer -> CleanRenderFrame();
 
         // SDL_Delay(100);//ms
@@ -81,12 +109,11 @@ void Pong::TogglePause(){
 }
 
 
-void Pong::SetScreenWidth(int width){
+void Pong::SetScreen(int width, int height){
 	screenWidth = width;
+    screenHeight = height;
 }
-void Pong::SetScreenHeight(int height){
-	screenHeight = height;
-}
+
 
 
 //event handling

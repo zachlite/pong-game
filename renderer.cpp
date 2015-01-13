@@ -5,6 +5,13 @@ Renderer::Renderer(int width, int height){
 	screenHeight = height;
 }
 
+void Renderer::SetRenderColor(int r, int g, int b, int a){
+    red = r;
+    green = g;
+    blue = b;
+    alpha = a;
+}
+
 
 void Renderer::InitRenderFrame(){
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -14,38 +21,28 @@ void Renderer::InitRenderFrame(){
 
 void Renderer::RenderFrame(Shape *shape){
 
-	// for now
-	int x = 20;
-	int y = 20;
-	int width = 20;
-	int height = 80;
-
-    glBegin(GL_QUADS);
-    glColor3ub(0, 0xff, 0xff);
-    glVertex2f(x, y);
-    glVertex2f(x+width, y);
-    glVertex2f(x+width, y+height);
-    glVertex2f(x, y+height);
-    glEnd();
-
-    //eventually...
-    //for each shape in array of shapes to render...
-
-    Color color;
-    color = shape->GetColor();
 
     Point center;
     center = shape->GetCenter();
 
+    int width = shape->GetWidth();
+    int height = shape->GetHeight();
 
-  	cout << shape->GetWidth() << endl;
-    cout << shape->GetHeight() << endl;
-    cout << color.r << ":" << color.g << ":" << color.b << endl;
-    cout << center.x << ":" << center.y << endl;
+
+    glBegin(GL_QUADS);
+    glColor3ub(0x00, 0x00, 0x00);
+    glVertex2f(center.x-(width/2.0), center.y-(height/2.0));
+    glVertex2f(center.x+(width/2.0), center.y-(height/2.0));
+    glVertex2f(center.x+(width/2.0), center.y+(height/2.0));
+    glVertex2f(center.x-(width/2.0), center.y+(height/2.0));
+    glEnd();
+
+
+
+    // Color color;
+    // color = shape->GetColor(); 
+    // cout << color.r << ":" << color.g << ":" << color.b << endl;
    
-
-
-
 
 }
 

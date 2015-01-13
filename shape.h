@@ -34,7 +34,7 @@ class Shape
 {
 	public:
 		Shape();
-		~Shape();
+		~Shape(){};
 
 		void SetCenter(int x, int y);
 		void SetColor(int r, int g, int b, int a);

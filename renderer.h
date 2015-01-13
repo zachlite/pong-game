@@ -2,7 +2,6 @@
 #include <OpenGL/glu.h>
 #include <OpenGL/glext.h>
 
-#include <vector>
 
 #include "shape.h"
 
@@ -17,6 +16,8 @@ class Renderer
 
 		void SetFrame();
 
+		void SetRenderColor(int r, int g, int b, int a);
+
 		void InitRenderFrame();
 		void RenderFrame(Shape *shape);
 		void CleanRenderFrame();
@@ -25,6 +26,10 @@ class Renderer
 	private:
 		int screenWidth;
 		int screenHeight;	
+		int red;
+		int green;
+		int blue;
+		int alpha;
 
 		
 		//frame.  a frame is vector of shapes

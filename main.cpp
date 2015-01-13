@@ -16,8 +16,7 @@ int main(int argc, char * argv[]){
 
     //create a new pong game object
     Pong *pongGame = new Pong(1);
-    pongGame->SetScreenHeight(300);
-    pongGame->SetScreenWidth(400);
+    pongGame->SetScreen(300,400);
 
     pongGame->StartGame();
 
@@ -25,6 +24,10 @@ int main(int argc, char * argv[]){
 
     //start game
 
+
+
+    free(sdl);
+    free(pongGame);
 
 
 

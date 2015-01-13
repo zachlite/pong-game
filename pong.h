@@ -4,6 +4,9 @@
 #include <OpenGL/glu.h>
 #include <OpenGL/glext.h>
 
+#include "shape.h"
+
+
 using namespace std;
 
 class Pong
@@ -14,8 +17,7 @@ class Pong
 
 		void StartGame(void);
 
-		void SetScreenWidth(int width);
-		void SetScreenHeight(int height);
+		void SetScreen(int width, int height);
 
 
 	private:
