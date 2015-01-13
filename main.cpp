@@ -6,8 +6,25 @@
 #include "sdllayer.h"
 
 
+#include "network/client.h"
+#include "network/server.h"
+
+#include "string.h"
+
 
 int main(int argc, char * argv[]){
+
+
+    int sockfd;
+    if (strcmp(argv[1], "0") == 0){
+    
+        serve("5000");
+    }
+    else if (strcmp(argv[1], "1") == 0){
+    
+        sockfd = cli("5000");
+    }
+
 
 
     string windowName = "Pong";
@@ -25,7 +42,7 @@ int main(int argc, char * argv[]){
     //start game
 
 
-
+    close(sockfd);
     free(sdl);
     free(pongGame);
 

@@ -4,6 +4,8 @@
 #include <vector>
 #include <math.h>
 
+
+
 const int PADDLE_WIDTH = 3;
 const int PADDLE_HEIGHT = 100;
 const int BALL_DIAMETER = 7;
@@ -105,10 +107,6 @@ void Pong::StartGame(){
                 downPressed = false;
             }
 
-
-
-
-
         }
 
 
@@ -126,8 +124,7 @@ void Pong::StartGame(){
         {
             if (paddle_1_y - (PADDLE_HEIGHT/2.0) > 0)
                 player_1->SetY(player_1->GetY() - 5);
-
-                //send     
+   
             
         }
         else if (downPressed)
@@ -136,12 +133,19 @@ void Pong::StartGame(){
             if (paddle_1_y + (PADDLE_HEIGHT / 2.0) < screenHeight)
                 player_1->SetY(player_1->GetY() + 5);
 
-                //send
     
         }
 
 
-        //paddle 2 movement
+
+
+        //network
+        //need player 2's y.
+        //I send my y
+
+
+
+    
 
         //listen on network for location
 
@@ -151,8 +155,6 @@ void Pong::StartGame(){
         paddle_2_rect.X2 = (screenWidth-10)+(PADDLE_WIDTH/2.0);
         paddle_2_rect.Y1 = paddle_2_y-(PADDLE_HEIGHT/2.0);
         paddle_2_rect.Y2 = paddle_2_y+(PADDLE_HEIGHT/2.0);
-
-
 
 
 
