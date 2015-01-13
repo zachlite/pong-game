@@ -23,6 +23,7 @@ void Pong::StartGame(){
 	Renderer *renderer = new Renderer(screenWidth, screenHeight);
 
 
+
 	Shape *player_1 = new Shape();
 
 	player_1->SetWidth(PADDLE_WIDTH);
@@ -35,9 +36,12 @@ void Pong::StartGame(){
     player_2->SetHeight(PADDLE_HEIGHT);
     player_2->SetCenter(screenWidth-10,screenHeight/2.0);
 
+
+
+
     // shape->SetVelocity(3.0, 4.0);
 
-    size_t size = 2;
+    
     std::vector<Shape*> shapes;
 
     shapes.push_back(player_1);
@@ -48,6 +52,8 @@ void Pong::StartGame(){
 
     SDL_Event event; 
 
+    bool upPressed = false;
+    bool downPressed = false;
 
     while (!endGame)
     {
@@ -72,6 +78,49 @@ void Pong::StartGame(){
             	else isPaused = false;
             }
 
+            if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_UP) )
+            {
+                upPressed = true;
+            }
+            else
+            {
+                upPressed = false;
+            }
+
+
+            if ( (event.type == SDL_KEYDOWN) && (event.key.keysym.sym == SDLK_DOWN) )
+            {
+                downPressed = true;
+            }
+            else
+            {
+                downPressed = false;
+            }
+
+
+
+
+
+        }
+
+
+        //logic 
+
+
+        if (upPressed)
+        {
+            int current_y = player_1->GetY();
+            if (current_y - (PADDLE_HEIGHT/2.0) > 0)
+                player_1->SetY(player_1->GetY() - 5);
+                
+            
+        }
+        else if (downPressed)
+        {
+            int current_y = player_1->GetY();
+            if (current_y + (PADDLE_HEIGHT / 2.0) < screenHeight)
+                player_1->SetY(player_1->GetY() + 5);
+    
         }
 
 

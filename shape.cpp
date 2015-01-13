@@ -11,6 +11,9 @@ void Shape::SetCenter(int x, int y){
 	centerPoint.x = x;
 	centerPoint.y = y;
 }
+void Shape::SetY(int y){
+	centerPoint.y = y;
+}
 
 void Shape::SetColor(int red, int green, int blue, int alpha){
 	color.r = red;
@@ -36,6 +39,10 @@ void Shape::SetVelocity(float mag, float dir){
 
 Point Shape::GetCenter(){
 	return centerPoint;
+}
+
+int Shape::GetY(){
+	return centerPoint.y;
 }
 
 Color Shape::GetColor(){

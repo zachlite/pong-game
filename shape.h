@@ -37,12 +37,14 @@ class Shape
 		~Shape(){};
 
 		void SetCenter(int x, int y);
+		void SetY(int y);
 		void SetColor(int r, int g, int b, int a);
 		void SetVelocity(float mag, float dir);
 		void SetWidth(int w);
 		void SetHeight(int h);
 
 		Point GetCenter();
+		int GetY();
 		Color GetColor();
 		Velocity GetVelocity();
 		int GetWidth();
