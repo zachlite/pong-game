@@ -12,7 +12,7 @@ void Renderer::InitRenderFrame(){
     glOrtho(0,screenWidth,screenHeight,0,-1,1);//set the matrix
 }
 
-void Renderer::RenderFrame(vector<Shape> &shapes){
+void Renderer::RenderFrame(Shape *shape){
 
 	// for now
 	int x = 20;
@@ -31,10 +31,19 @@ void Renderer::RenderFrame(vector<Shape> &shapes){
     //eventually...
     //for each shape in array of shapes to render...
 
-    for (int i = 0; i < shapes.size(); i++)
-    {
-    	cout << "iterate" << endl;
-    }
+    Color color;
+    color = shape->GetColor();
+
+    Point center;
+    center = shape->GetCenter();
+
+
+  	cout << shape->GetWidth() << endl;
+    cout << shape->GetHeight() << endl;
+    cout << color.r << ":" << color.g << ":" << color.b << endl;
+    cout << center.x << ":" << center.y << endl;
+   
+
 
 
 

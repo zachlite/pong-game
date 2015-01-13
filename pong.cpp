@@ -16,15 +16,15 @@ void Pong::StartGame(){
 
 	Renderer *renderer = new Renderer(screenWidth, screenHeight);
 
-	// Paddle *player_paddle = new Paddle();
-
-	// vector<Shape> derp;
-	// size_t size = 10;
-	// vector<Shape> derp;
-	vector<Shape>v1;
-
 
 	Shape *shape = new Shape();
+	shape->SetWidth(50);
+    shape->SetHeight(80);
+    shape->SetColor(2, 2, 2, 2);
+    shape->SetVelocity(3.0, 4.0);
+    shape->SetCenter(100,100);
+
+
 
     SDL_Event event; 
  
@@ -58,12 +58,15 @@ void Pong::StartGame(){
 
 
         //logic
+        //need these
+         // cout << shape->GetVelocity().magnitude << endl;
+    // cout << shape->GetVelocity().direction << endl;
 
 
 
         //render
         renderer -> InitRenderFrame();
-        // renderer -> RenderFrame(derp);
+        renderer -> RenderFrame(shape);
         renderer -> CleanRenderFrame();
 
         // SDL_Delay(100);//ms

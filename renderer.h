@@ -18,7 +18,7 @@ class Renderer
 		void SetFrame();
 
 		void InitRenderFrame();
-		void RenderFrame(vector<Shape> &shapes);
+		void RenderFrame(Shape *shape);
 		void CleanRenderFrame();
 
 	/* data */

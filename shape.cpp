@@ -12,11 +12,12 @@ void Shape::SetCenter(int x, int y){
 	centerPoint.y = y;
 }
 
-void Shape::SetColor(char r, char g, char b, char a){
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	color.a = a;
+void Shape::SetColor(int red, int green, int blue, int alpha){
+	color.r = red;
+	color.g = red;
+	color.b = red;
+	color.a = red;
+
 }
 
 void Shape::SetWidth(int w){
@@ -31,4 +32,23 @@ void Shape::SetHeight(int h){
 void Shape::SetVelocity(float mag, float dir){
 	velocity.magnitude = mag;
 	velocity.direction = dir;
+}
+
+Point Shape::GetCenter(){
+	return centerPoint;
+}
+
+Color Shape::GetColor(){
+	return color;
+}
+
+Velocity Shape::GetVelocity(){
+	return velocity;
+}
+
+int Shape::GetWidth(){
+	return width;
+}
+int Shape::GetHeight(){
+	return height;
 }
