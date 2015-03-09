@@ -21,7 +21,6 @@
 #include <stdbool.h>
 
 
-
 typedef enum {SERVER, CLIENT} HostType_t;
 
 typedef struct{
@@ -29,22 +28,8 @@ typedef struct{
     int new_client_fd;
 }new_client;
 
-// typedef struct
-// {
-//    unsigned char throttle;
-//    unsigned char direction;
-    
-// }Data_Packet;
-
-
+//returns a file descriptor
 int net_open(const char *host, const char *port, HostType_t hostType);
-bool net_is_connected(int fd);
-void net_print_received_data(char *data);
-
-
-void *get_in_addr(struct sockaddr *sa);
-void net_print_IP(const char *host, struct addrinfo *netinfo);
-int net_show_IP(const char HOST[]);
 
 
 #endif

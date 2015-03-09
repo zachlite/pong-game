@@ -13,7 +13,6 @@ int serv_listen_for_client(int sockfd);
 void* serv_client_handler(void *arg);
 
 
-// Data_Packet carInstructions;
 
 void delay(int milliseconds)
 {
@@ -41,8 +40,6 @@ void* serv_client_handler(void *arg)
     int clientfd = nc->new_client_fd;
     char *clientaddr = nc->client_addr;
 
-  
-
         
     recv(clientfd, &buffer, sizeof(buffer) - 1, 0);          
     net_print_received_data(buffer);
@@ -66,6 +63,7 @@ int serv_listen_for_client(int sockfd)
     int listenStatus;
     
     listenStatus = listen(sockfd, 3);
+    printf("getting here?\n");
     
     if (listenStatus == -1) {
         fprintf(stderr, "listen failed %s\n", strerror(errno));
@@ -86,7 +84,8 @@ int serv_listen_for_client(int sockfd)
     
     //accept a new connection and get its file descriptor
     newfd = accept(sockfd, (struct sockaddr *)&their_addr, &addr_size);
-    
+    printf("getting here????\n");
+
     
     inet_ntop(their_addr.ss_family, get_in_addr((struct sockaddr *)&their_addr), s, sizeof(s));
     printf("Server received a connection from %s\n", s);
@@ -126,9 +125,8 @@ int serve(const char *PORT)
     
     int sockfd;
 
-    printf("initializing web server\n");
+    printf("initializing server\n");
 
-    
     if ((sockfd = net_open(NULL, PORT, SERVER)) == -1)
     {
         fprintf(stderr, "error: server initialization failed\n");
@@ -143,11 +141,8 @@ int serve(const char *PORT)
         return -1;
     }
     
-    
-    
       
-    return sockfd;
-    
+    return sockfd;    
 }
 
 

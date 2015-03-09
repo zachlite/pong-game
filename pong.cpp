@@ -176,14 +176,22 @@ void Pong::StartGame(){
         ball_rect.Y1 = current_center.y-(BALL_DIAMETER/2.0);
         ball_rect.Y2 = current_center.y+(BALL_DIAMETER/2.0);
 
+
+
         if(RectInRect(ball_rect, paddle_1_rect) || RectInRect(ball_rect, paddle_2_rect)){
              ball->SetVelocity(vx*-1, vy);
         } 
 
-
-        if ( (current_center.x - (BALL_DIAMETER/2.0) < 0 ) || ( current_center.x + (BALL_DIAMETER/2.0) > screenWidth) ) 
+        if (ball_rect.X1 < 0) 
         {
             ball->SetVelocity(vx*-1, vy);
+            printf("point for p2\n");
+        }
+
+        if (ball_rect.X2 > screenWidth)
+        {
+            ball->SetVelocity(vx*-1, vy);
+            printf("point for p1\n");
         }
 
         if ( (current_center.y - (BALL_DIAMETER/2.0) < 0 ) || ( current_center.y + (BALL_DIAMETER) > screenHeight) ) 
